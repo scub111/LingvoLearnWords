@@ -1,0 +1,1 @@
+D:\_Projects\LingvoLearnWords\LingvoLearnWords\bin\Debug\LingvoLearnWords.exe.config
