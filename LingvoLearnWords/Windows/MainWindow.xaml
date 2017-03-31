@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LingvoLearnWords"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="Lingvo LearnWords" Height="350" Width="525" Loaded="Window_Loaded">
+    <Viewbox>
+        <Canvas x:Name="LayoutRoot" Height="350" Width="525" Background="{x:Null}"/>
+    </Viewbox>
 </Window>
