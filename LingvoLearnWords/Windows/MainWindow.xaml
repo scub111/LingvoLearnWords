@@ -1,12 +1,77 @@
-﻿<Window x:Class="LingvoLearnWords.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
         xmlns:local="clr-namespace:LingvoLearnWords"
+        xmlns:dxnav="http://schemas.devexpress.com/winfx/2008/xaml/navigation" x:Name="mainWindow" x:Class="LingvoLearnWords.MainWindow"
         mc:Ignorable="d"
-        Title="Lingvo LearnWords" Height="350" Width="525" Loaded="Window_Loaded">
-    <Viewbox>
-        <Canvas x:Name="LayoutRoot" Height="350" Width="525" Background="{x:Null}"/>
-    </Viewbox>
+        Height="870" Width="1010" WindowStyle="None" Loaded="Window_Loaded"
+        ResizeMode="CanResizeWithGrip" AllowsTransparency="False">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type local:DictionaryViewModel}">
+            <local:DictionaryView/>
+        </DataTemplate>
+
+        <!--<Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Red"/>
+                    <Setter Property="FontSize" Value="20"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="FontSize" Value="22"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type dx:SimpleButton}">
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" From="10"  To="18"  Duration="0:0:1" AutoReverse="True"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    --><!--<Setter Property="Background" Value="Red"/>
+                    <Setter Property="FontSize" Value="20"/>--><!--
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="FontSize" Value="22"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
+    </Window.Resources>
+    <!--<Viewbox>
+        <Canvas x:Name="LayoutRoot" Height="800" Width="1000" Background="{x:Null}"/>
+    </Viewbox>-->
+    <WindowChrome.WindowChrome>
+        <WindowChrome 
+        CaptionHeight="0"
+        ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
+    <StackPanel Background="{StaticResource FormBrush}">
+        <dxnav:TileNavPane x:Name="navPane" MouseDown="navPane_MouseDown" Height="52">
+          
+            <dxnav:TileNavPane.NavButtons>
+                <dxnav:NavButton Glyph="/LingvoLearnWords;component/Images/Home.png" AllowGlyphTheming="True" Command="{Binding DictionaryViewCommand}"/>
+                <dxnav:NavButton Content="Home" Command="{Binding DictionaryViewCommand}"/>
+                <dxnav:NavButton Content="Test1"/>
+                <dxnav:NavButton Content="Test2"/>
+                <!--<dxnav:NavButton Content="&#x0058;" IsMain="False" HorizontalAlignment="Right" Command="{Binding ExitCommand}"/>-->
+                <dxnav:NavButton  Glyph="/LingvoLearnWords;component/Images/Close.png" AllowGlyphTheming="True" IsMain="False" HorizontalAlignment="Right" Command="{Binding ExitCommand}" DisplayMode="Glyph" />
+                <dxnav:NavButton  Glyph="/LingvoLearnWords;component/Images/Close.png" AllowGlyphTheming="True" IsMain="False" HorizontalAlignment="Right" Command="{Binding ExitCommand}" DisplayMode="Glyph">
+                </dxnav:NavButton>
+            </dxnav:TileNavPane.NavButtons>
+        </dxnav:TileNavPane>
+        <ContentControl HorizontalAlignment="Left" x:Name="Pages" Content="{Binding SelectedViewModel}"/>
+        <!--<Frame x:Name="BaseFrame" HorizontalAlignment="Left">            
+        </Frame>-->
+    </StackPanel>
 </Window>

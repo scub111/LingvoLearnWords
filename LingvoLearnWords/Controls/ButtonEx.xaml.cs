@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -8,6 +9,7 @@ namespace LingvoLearnWords
     /// <summary>
     /// Interaction logic for HMILabel.xaml
     /// </summary>
+    [DefaultEvent("ClickDown")]
     public partial class ButtonEx : UserControlEx
     {
         public ButtonEx()
@@ -54,6 +56,12 @@ namespace LingvoLearnWords
             get { return recMouse.RadiusX; }
             set { recMouse.RadiusX = recMouse.RadiusY = value; }
         }
+        
+        /// <summary>
+        /// Событие на нажатие кнопки.
+        /// </summary>
+        public event EventHandler ClickDown = delegate { };
+
 
         /// <summary>
         /// Событие на отжатие кнопки.
@@ -81,6 +89,7 @@ namespace LingvoLearnWords
         private void HMIBase_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             PressedState();
+            ClickDown(this, EventArgs.Empty);
         }
 
         private void HMIBase_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

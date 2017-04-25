@@ -1,7 +1,10 @@
-﻿D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\GeneratedInternalTypeHelper.g.cs
-
-FD:\_Projects\LingvoLearnWords\LingvoLearnWords\Controls\ButtonEx.xaml;;
+﻿
+FD:\_Projects\LingvoLearnWords\LingvoLearnWords\App.xaml;;
 FD:\_Projects\LingvoLearnWords\LingvoLearnWords\Views\DictionaryView.xaml;;
+FD:\_Projects\LingvoLearnWords\LingvoLearnWords\Controls\ButtonEx.xaml;;
+FD:\_Projects\LingvoLearnWords\LingvoLearnWords\Controls\CurrentDetail.xaml;;
+FD:\_Projects\LingvoLearnWords\LingvoLearnWords\Page1.xaml;;
+FD:\_Projects\LingvoLearnWords\LingvoLearnWords\Views\DictionaryView2.xaml;;
 FD:\_Projects\LingvoLearnWords\LingvoLearnWords\Windows\MainWindow.xaml;;
 FD:\_Projects\LingvoLearnWords\LingvoLearnWords\Views\StartView.xaml;;
 

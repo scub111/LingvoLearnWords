@@ -2,8 +2,15 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LingvoLearnWords"
+             Startup="Application_Startup"
              StartupUri="Windows\MainWindow.xaml">
+    <!--StartupUri="Windows\MainWindow.xaml"-->
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/LingvoLearnWords;component/Controls/CurrentDataRowTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="FormBrush" Color="Green"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

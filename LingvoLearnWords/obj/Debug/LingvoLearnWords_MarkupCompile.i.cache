@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\App.xaml
-41810196084
+8-242117668
 
-14-554292537
-23-1317804082
-Controls\ButtonEx.xaml;Views\DictionaryView.xaml;Windows\MainWindow.xaml;Views\StartView.xaml;
+221483842058
+252142188787
+Views\DictionaryView.xaml;Controls\ButtonEx.xaml;Controls\CurrentDataRowTemplates.xaml;Controls\CurrentDetail.xaml;Page1.xaml;Views\DictionaryView2.xaml;Windows\MainWindow.xaml;Views\StartView.xaml;
 
-True
+False
 
