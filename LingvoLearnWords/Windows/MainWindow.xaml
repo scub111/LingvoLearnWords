@@ -5,10 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
         xmlns:local="clr-namespace:LingvoLearnWords"
-        xmlns:dxnav="http://schemas.devexpress.com/winfx/2008/xaml/navigation" x:Name="mainWindow" x:Class="LingvoLearnWords.MainWindow"
+        xmlns:dxnav="http://schemas.devexpress.com/winfx/2008/xaml/navigation" 
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" 
+        x:Name="mainWindow" 
+        x:Class="LingvoLearnWords.MainWindow"
         mc:Ignorable="d"
         Height="870" Width="1010" WindowStyle="None" Loaded="Window_Loaded"
-        ResizeMode="CanResizeWithGrip" AllowsTransparency="False">
+        ResizeMode="CanResizeWithGrip" AllowsTransparency="False"
+        WindowStartupLocation="CenterScreen"
+        DataContext="{dxmvvm:ViewModelSource Type={x:Type local:NavigationViewModel}}">
+    <!--dx:ThemeManager.ThemeName="Office2010Silver"-->
     <Window.Resources>
         <DataTemplate DataType="{x:Type local:DictionaryViewModel}">
             <local:DictionaryView/>
@@ -39,8 +45,10 @@
                             </Storyboard>
                         </BeginStoryboard>
                     </Trigger.EnterActions>
-                    --><!--<Setter Property="Background" Value="Red"/>
-                    <Setter Property="FontSize" Value="20"/>--><!--
+                    -->
+        <!--<Setter Property="Background" Value="Red"/>
+                    <Setter Property="FontSize" Value="20"/>-->
+        <!--
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="FontSize" Value="22"/>
@@ -48,30 +56,20 @@
             </Style.Triggers>
         </Style>-->
     </Window.Resources>
-    <!--<Viewbox>
-        <Canvas x:Name="LayoutRoot" Height="800" Width="1000" Background="{x:Null}"/>
-    </Viewbox>-->
     <WindowChrome.WindowChrome>
         <WindowChrome 
         CaptionHeight="0"
         ResizeBorderThickness="5" />
     </WindowChrome.WindowChrome>
+    <!--<StackPanel Background="{StaticResource FormBrush}">-->
     <StackPanel Background="{StaticResource FormBrush}">
-        <dxnav:TileNavPane x:Name="navPane" MouseDown="navPane_MouseDown" Height="52">
-          
+        <dxnav:TileNavPane x:Name="navPane" MouseDown="navPane_MouseDown">
             <dxnav:TileNavPane.NavButtons>
-                <dxnav:NavButton Glyph="/LingvoLearnWords;component/Images/Home.png" AllowGlyphTheming="True" Command="{Binding DictionaryViewCommand}"/>
-                <dxnav:NavButton Content="Home" Command="{Binding DictionaryViewCommand}"/>
-                <dxnav:NavButton Content="Test1"/>
-                <dxnav:NavButton Content="Test2"/>
-                <!--<dxnav:NavButton Content="&#x0058;" IsMain="False" HorizontalAlignment="Right" Command="{Binding ExitCommand}"/>-->
-                <dxnav:NavButton  Glyph="/LingvoLearnWords;component/Images/Close.png" AllowGlyphTheming="True" IsMain="False" HorizontalAlignment="Right" Command="{Binding ExitCommand}" DisplayMode="Glyph" />
-                <dxnav:NavButton  Glyph="/LingvoLearnWords;component/Images/Close.png" AllowGlyphTheming="True" IsMain="False" HorizontalAlignment="Right" Command="{Binding ExitCommand}" DisplayMode="Glyph">
-                </dxnav:NavButton>
+                <dxnav:NavButton Content="Home" Glyph="{dx:DXImage Image=Home_32x32.png}" Command="{Binding DictionaryViewCommand}"/>
+                <dxnav:NavButton Content="Test" Glyph="{dx:DXImage Image=ForceTesting_32x32.png}"/>
+                <dxnav:NavButton Glyph="{dx:DXImage Image=Close_32x32.png}" IsMain="False" HorizontalAlignment="Right" Command="{Binding ExitCommand}" DisplayMode="Glyph"/>
             </dxnav:TileNavPane.NavButtons>
         </dxnav:TileNavPane>
         <ContentControl HorizontalAlignment="Left" x:Name="Pages" Content="{Binding SelectedViewModel}"/>
-        <!--<Frame x:Name="BaseFrame" HorizontalAlignment="Left">            
-        </Frame>-->
     </StackPanel>
 </Window>

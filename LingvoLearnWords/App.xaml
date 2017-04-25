@@ -8,9 +8,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/LingvoLearnWords;component/Controls/CurrentDataRowTemplates.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <SolidColorBrush x:Key="FormBrush" Color="Green"/>
+            <SolidColorBrush x:Key="FormBrush" Color="#DCDCDC"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

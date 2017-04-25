@@ -1,60 +1,37 @@
-﻿using DevExpress.Mvvm;
-using System;
-using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows;
+using DevExpress.Mvvm.POCO;
 
 namespace LingvoLearnWords
 {
-    public class NavigationViewModel : ViewModelBase
+    //[POCOViewModel]
+    public class NavigationViewModel 
     {
-        public NavigationViewModel()
+        protected NavigationViewModel()
         {
         }
 
-        private object selectedViewModel;
-        public object SelectedViewModel
+        public static NavigationViewModel Create()
         {
-            get { return selectedViewModel; }
-            set { selectedViewModel = value; RaisePropertiesChanged("SelectedViewModel"); }
+            return ViewModelSource.Create(() => new NavigationViewModel());
         }
+
+        public virtual object SelectedViewModel { get; set; }
 
         #region Commands
-        #region DictionaryView
-        private DelegateCommand dictionaryViewCommand;
 
-        public ICommand DictionaryViewCommand
+        public void DictionaryView()
         {
-            get
-            {
-                if (dictionaryViewCommand == null)
-                    dictionaryViewCommand = new DelegateCommand(() =>
-                    {
-                        SelectedViewModel = new DictionaryViewModel(
-                                new XMLDictionary(@"C:\Users\karnaushenkoSV\AppData\Local\ABBYY\Lingvo\16.0\Dic\TutorDict\Common2016EnRu.xml"));
+            //DXSplashScreen.Show<SplashScreenView>();
+            SelectedViewModel = new DictionaryViewModel(
+                new XMLDictionary(@"C:\Users\karnaushenkoSV\AppData\Local\ABBYY\Lingvo\16.0\Dic\TutorDict\Common2016EnRu.xml"));
+            //Thread.Sleep(3000);
+        }
 
-                    });
-                    return dictionaryViewCommand;
-            }
+        public void Exit()
+        {
+            Application.Current.Shutdown();
         }
         #endregion
 
-        #region Exit
-        private DelegateCommand exitCommand;
-
-        public ICommand ExitCommand
-        {
-            get
-            {
-                if (exitCommand == null)
-                    exitCommand = new DelegateCommand(() =>
-                    {
-                        Application.Current.Shutdown();
-                    });
-                return exitCommand;
-            }
-        }
-        #endregion
-
-        #endregion
     }
 }

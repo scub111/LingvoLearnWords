@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using DevExpress.Xpf.Core;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace LingvoLearnWords
@@ -16,6 +17,7 @@ namespace LingvoLearnWords
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ((DictionaryViewModel)DataContext).Loaded += DictionaryView_Loaded;
+            //DXSplashScreen.Close();
         }
 
         private void DictionaryView_Loaded(object sender, System.EventArgs e)

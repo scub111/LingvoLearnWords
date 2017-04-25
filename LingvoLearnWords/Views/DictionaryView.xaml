@@ -5,11 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
       xmlns:local="clr-namespace:LingvoLearnWords"
-      xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" x:Class="LingvoLearnWords.DictionaryView"
+      xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" x:Class="LingvoLearnWords.DictionaryView"
       mc:Ignorable="d" 
       Height="800" Width="1000"
       Loaded="Page_Loaded">
     <!--d:DesignHeight="500" d:DesignWidth="300"-->
+    <dxmvvm:Interaction.Behaviors>
+        <dx:DXSplashScreenService SplashScreenType="{x:Type local:SplashScreenView}" ShowSplashScreenOnLoading="True"/>
+    </dxmvvm:Interaction.Behaviors>
+    <!--<Grid Background="{StaticResource FormBrush}">-->
     <Grid Background="{StaticResource FormBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -43,7 +47,8 @@
                             <StackPanel>
                                 <TextBlock Text="Word:" />
                                 <dxe:TextEdit EditValue="{Binding Word, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
-                                <dxg:GridControl x:Name="dataGridFirstTranslations" ItemsSource="{Binding FirstTranslations}" AutoGenerateColumns="None" Height="200">
+                                <TextBlock Text="Translations:" />
+                                <dxg:GridControl x:Name="dataGridFirstTranslations" ItemsSource="{Binding FirstTranslations}" AutoGenerateColumns="None" Height="200" Margin="0,0,0,10">
                                     <dxg:GridControl.Columns>
                                         <dxg:GridColumn FieldName="Word" Width="400"/>
                                     </dxg:GridControl.Columns>
@@ -51,7 +56,8 @@
                                         <dxg:TableView AllowPerPixelScrolling="True" ShowSearchPanelMode="Always" ShowGroupPanel="False" ShowDataNavigator="True"/>
                                     </dxg:GridControl.View>
                                 </dxg:GridControl>
-                                <dxg:GridControl x:Name="dataGridFirstSounds" ItemsSource="{Binding FirstSounds}" AutoGenerateColumns="None" Height="200">
+                                <TextBlock Text="Sounds:" />
+                                <dxg:GridControl x:Name="dataGridFirstSounds" ItemsSource="{Binding FirstSounds}" AutoGenerateColumns="None" Height="200" Margin="0,0,0,10">
                                     <dxg:GridControl.Columns>
                                         <dxg:GridColumn FieldName="Name" Width="400"/>
                                     </dxg:GridControl.Columns>
@@ -67,8 +73,8 @@
                 </ContentControl.ContentTemplate>
             </ContentControl>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <dx:SimpleButton x:Name="loadButton" Content="Load" Command="{Binding LoadCommand}" Width="100" Margin="10,0,10,0"/>
-                <dx:SimpleButton x:Name="saveButton" Content="Save" Command="{Binding SaveCommand}" Width="100" Margin="10,0,10,0"/>
+                <dx:SimpleButton x:Name="loadButton" Content="Load" Command="{Binding LoadCommand}" Width="100" Height="30" Margin="10,0,10,0"/>
+                <dx:SimpleButton x:Name="saveButton" Content="Save" Command="{Binding SaveCommand}" Width="100" Height="30" Margin="10,0,10,0"/>
             </StackPanel>
         </StackPanel>
 

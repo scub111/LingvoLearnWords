@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 using DevExpress.Mvvm;
+using DevExpress.Mvvm.DataAnnotations;
 
 namespace LingvoLearnWords
 {
@@ -20,14 +20,19 @@ namespace LingvoLearnWords
         {
             XMLDictionary = xmlDictionary;
             if (XMLDictionary.Dictionary != null && XMLDictionary.Dictionary.Cards != null)
-                Cards = new ObservableCollection<CardViewModel>(XMLDictionary.Dictionary.Cards.Select(i => new CardViewModel(i)));
-            else
-                LoadCommand.Execute(null);
+                _Cards = new ObservableCollection<CardViewModel>(XMLDictionary.Dictionary.Cards.Select(i => new CardViewModel(i)));
         }
 
         private XMLDictionary XMLDictionary;
 
-        public ObservableCollection<CardViewModel> Cards { get; private set; }
+        private ObservableCollection<CardViewModel> _Cards;
+        public ObservableCollection<CardViewModel> Cards
+        {
+            get
+            {
+                return _Cards ?? Load();
+            } 
+        }
 
         /// <summary>
         /// Событие на загрузку данных.
@@ -35,41 +40,20 @@ namespace LingvoLearnWords
         public event EventHandler Loaded = delegate { };
 
         #region Commands
-        #region Load
-        private DelegateCommand loadCommand;
-
-        public ICommand LoadCommand
+        [Command]
+        public ObservableCollection<CardViewModel> Load()
         {
-            get
-            {
-                if (loadCommand == null)
-                    loadCommand = new DelegateCommand(() =>
-                    {
-                        XMLDictionary.LoadFromXML();
-                        Cards = new ObservableCollection<CardViewModel>(XMLDictionary.Dictionary.Cards.Select(i => new CardViewModel(i)));
-                        Loaded(this, EventArgs.Empty);
-                    });
-                return loadCommand;
-            }
+            XMLDictionary.LoadFromXML();
+            _Cards = new ObservableCollection<CardViewModel>(XMLDictionary.Dictionary.Cards.Select(i => new CardViewModel(i)));
+            Loaded(this, EventArgs.Empty);
+            return _Cards;
         }
-        #endregion
-        #region Save
-        private DelegateCommand saveCommand;
 
-        public ICommand SaveCommand
+        [Command]
+        public void Save()
         {
-            get
-            {
-                if (saveCommand == null)
-                    saveCommand = new DelegateCommand(() =>
-                    {
-                        XMLDictionary.SaveToXML();
-                    });
-                return saveCommand;
-            }
+            XMLDictionary.SaveToXML();
         }
-        #endregion
-
         #endregion
     }
 

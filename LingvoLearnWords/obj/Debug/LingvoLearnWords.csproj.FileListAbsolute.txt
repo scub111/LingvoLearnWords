@@ -37,12 +37,9 @@ D:\_Projects\LingvoLearnWords\LingvoLearnWords\bin\Debug\de\DevExpress.Xpf.Grid.
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\bin\Debug\es\DevExpress.Xpf.Grid.v15.2.Core.resources.dll
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\bin\Debug\ja\DevExpress.Xpf.Grid.v15.2.Core.resources.dll
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\bin\Debug\ru\DevExpress.Xpf.Grid.v15.2.Core.resources.dll
-D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Controls\CurrentDataRowTemplates.baml
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Views\DictionaryView.g.cs
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Controls\ButtonEx.g.cs
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Controls\CurrentDetail.g.cs
-D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Page1.g.cs
-D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Views\DictionaryView2.g.cs
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Windows\MainWindow.g.cs
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Views\StartView.g.cs
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\App.g.cs
@@ -53,8 +50,6 @@ D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\App.baml
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Views\DictionaryView.baml
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Controls\ButtonEx.baml
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Controls\CurrentDetail.baml
-D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Page1.baml
-D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Views\DictionaryView2.baml
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Windows\MainWindow.baml
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Views\StartView.baml
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\LingvoLearnWords.g.resources
@@ -64,3 +59,5 @@ D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\LingvoLearnWords.exe.li
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\LingvoLearnWords.exe
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\LingvoLearnWords.pdb
 D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\LingvoLearnWords.csprojResolveAssemblyReference.cache
+D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Controls\SplashScreenView.baml
+D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\Controls\SplashScreenView.g.cs
