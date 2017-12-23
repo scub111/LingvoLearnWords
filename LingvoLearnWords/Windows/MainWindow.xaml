@@ -14,60 +14,22 @@
         ResizeMode="CanResizeWithGrip" AllowsTransparency="False"
         WindowStartupLocation="CenterScreen"
         DataContext="{dxmvvm:ViewModelSource Type={x:Type local:NavigationViewModel}}">
-    <!--dx:ThemeManager.ThemeName="Office2010Silver"-->
     <Window.Resources>
         <DataTemplate DataType="{x:Type local:DictionaryViewModel}">
             <local:DictionaryView/>
         </DataTemplate>
-
-        <!--<Style TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="AliceBlue"/>
-            <Setter Property="FontSize" Value="17"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Red"/>
-                    <Setter Property="FontSize" Value="20"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="FontSize" Value="22"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        <Style TargetType="{x:Type dx:SimpleButton}">
-            <Setter Property="Background" Value="AliceBlue"/>
-            <Setter Property="FontSize" Value="10"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Trigger.EnterActions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="FontSize" From="10"  To="18"  Duration="0:0:1" AutoReverse="True"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </Trigger.EnterActions>
-                    -->
-        <!--<Setter Property="Background" Value="Red"/>
-                    <Setter Property="FontSize" Value="20"/>-->
-        <!--
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="FontSize" Value="22"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>-->
     </Window.Resources>
     <WindowChrome.WindowChrome>
         <WindowChrome 
         CaptionHeight="0"
         ResizeBorderThickness="5" />
     </WindowChrome.WindowChrome>
-    <!--<StackPanel Background="{StaticResource FormBrush}">-->
     <StackPanel Background="{StaticResource FormBrush}">
         <dxnav:TileNavPane x:Name="navPane" MouseDown="navPane_MouseDown">
             <dxnav:TileNavPane.NavButtons>
-                <dxnav:NavButton Content="Home" Command="{Binding DictionaryViewCommand}"/>
-                <dxnav:NavButton Content="Test" />
-                <dxnav:NavButton IsMain="False" HorizontalAlignment="Right" Command="{Binding ExitCommand}" DisplayMode="Glyph"/>
+                <dxnav:NavButton Content="Home" Glyph="{dx:DXImage Image=Home_32x32.png}" Command="{Binding DictionaryViewCommand}"/>
+                <dxnav:NavButton Content="Test" Glyph="{dx:DXImage Image=ForceTesting_32x32.png}"/>
+                <dxnav:NavButton Glyph="{dx:DXImage Image=Close_32x32.png}" IsMain="False" HorizontalAlignment="Right" Command="{Binding ExitCommand}" DisplayMode="Glyph"/>
             </dxnav:TileNavPane.NavButtons>
         </dxnav:TileNavPane>
         <ContentControl HorizontalAlignment="Left" x:Name="Pages" Content="{Binding SelectedViewModel}"/>
