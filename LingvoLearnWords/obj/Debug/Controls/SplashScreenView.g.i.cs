@@ -15,6 +15,7 @@ using DevExpress.Xpf.Core.ConditionalFormatting;
 using DevExpress.Xpf.Core.DataSources;
 using DevExpress.Xpf.Core.Serialization;
 using DevExpress.Xpf.Core.ServerMode;
+using DevExpress.Xpf.DXBinding;
 using System;
 using System.Diagnostics;
 using System.Windows;

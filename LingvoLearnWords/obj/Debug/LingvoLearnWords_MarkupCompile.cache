@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\_Projects\LingvoLearnWords\LingvoLearnWords\obj\Debug\
+D:\_Cloud\_Projects\Scub111\LingvoLearnWords\LingvoLearnWords\obj\Debug\
 LingvoLearnWords
 none
 false
 DEBUG;TRACE
-D:\_Projects\LingvoLearnWords\LingvoLearnWords\App.xaml
+D:\_Cloud\_Projects\Scub111\LingvoLearnWords\LingvoLearnWords\App.xaml
 6835216382
 
 17-833619669
-37919350798
+271792573408
 Controls\SplashScreenView.xaml;Views\DictionaryView.xaml;Controls\ButtonEx.xaml;Controls\CurrentDetail.xaml;Windows\MainWindow.xaml;Views\StartView.xaml;
 
 False

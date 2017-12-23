@@ -23,7 +23,7 @@ namespace LingvoLearnWords
         {
             //DXSplashScreen.Show<SplashScreenView>();
             SelectedViewModel = new DictionaryViewModel(
-                new XMLDictionary(@"C:\Users\karnaushenkoSV\AppData\Local\ABBYY\Lingvo\16.0\Dic\TutorDict\Common2016EnRu.xml"));
+                new XMLDictionary(@"C:\Users\Admin\AppData\Local\ABBYY\Lingvo\16.0\Dic\TutorDict\Common2016EnRu.xml"));
             //Thread.Sleep(3000);
         }
 

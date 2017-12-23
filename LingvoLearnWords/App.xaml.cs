@@ -21,7 +21,7 @@ namespace LingvoLearnWords
 
             //MainWindow mainWindow = new MainWindow();
             //mainWindow.Show();
-            DevExpress.Xpf.Core.ApplicationThemeHelper.UpdateApplicationThemeName();
+            //DevExpress.Xpf.Core.ApplicationThemeHelper.UpdateApplicationThemeName();
         }
     }
 }

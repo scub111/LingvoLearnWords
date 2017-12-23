@@ -65,9 +65,9 @@
     <StackPanel Background="{StaticResource FormBrush}">
         <dxnav:TileNavPane x:Name="navPane" MouseDown="navPane_MouseDown">
             <dxnav:TileNavPane.NavButtons>
-                <dxnav:NavButton Content="Home" Glyph="{dx:DXImage Image=Home_32x32.png}" Command="{Binding DictionaryViewCommand}"/>
-                <dxnav:NavButton Content="Test" Glyph="{dx:DXImage Image=ForceTesting_32x32.png}"/>
-                <dxnav:NavButton Glyph="{dx:DXImage Image=Close_32x32.png}" IsMain="False" HorizontalAlignment="Right" Command="{Binding ExitCommand}" DisplayMode="Glyph"/>
+                <dxnav:NavButton Content="Home" Command="{Binding DictionaryViewCommand}"/>
+                <dxnav:NavButton Content="Test" />
+                <dxnav:NavButton IsMain="False" HorizontalAlignment="Right" Command="{Binding ExitCommand}" DisplayMode="Glyph"/>
             </dxnav:TileNavPane.NavButtons>
         </dxnav:TileNavPane>
         <ContentControl HorizontalAlignment="Left" x:Name="Pages" Content="{Binding SelectedViewModel}"/>
