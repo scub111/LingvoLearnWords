@@ -16,23 +16,17 @@ namespace LingvoLearnWords
 
     public class DictionaryViewModel : ViewModelBase
     {
-        public DictionaryViewModel(XMLDictionary xmlDictionary)
+        public DictionaryViewModel(XmlDictionary xmlDictionary)
         {
-            XMLDictionary = xmlDictionary;
-            if (XMLDictionary.Dictionary != null && XMLDictionary.Dictionary.Cards != null)
-                _Cards = new ObservableCollection<CardViewModel>(XMLDictionary.Dictionary.Cards.Select(i => new CardViewModel(i)));
+            _xmlDictionary = xmlDictionary;
+            if (_xmlDictionary.Dictionary?.Cards != null)
+                _cards = new ObservableCollection<CardViewModel>(_xmlDictionary.Dictionary.Cards.Select(i => new CardViewModel(i)));
         }
 
-        private XMLDictionary XMLDictionary;
+        private readonly XmlDictionary _xmlDictionary;
 
-        private ObservableCollection<CardViewModel> _Cards;
-        public ObservableCollection<CardViewModel> Cards
-        {
-            get
-            {
-                return _Cards ?? Load();
-            } 
-        }
+        private ObservableCollection<CardViewModel> _cards;
+        public ObservableCollection<CardViewModel> Cards => _cards ?? Load();
 
         /// <summary>
         /// Событие на загрузку данных.
@@ -43,16 +37,16 @@ namespace LingvoLearnWords
         [Command]
         public ObservableCollection<CardViewModel> Load()
         {
-            XMLDictionary.LoadFromXML();
-            _Cards = new ObservableCollection<CardViewModel>(XMLDictionary.Dictionary.Cards.Select(i => new CardViewModel(i)));
+            _xmlDictionary.LoadFromXml();
+            _cards = new ObservableCollection<CardViewModel>(_xmlDictionary.Dictionary.Cards.Select(i => new CardViewModel(i)));
             Loaded(this, EventArgs.Empty);
-            return _Cards;
+            return _cards;
         }
 
         [Command]
         public void Save()
         {
-            XMLDictionary.SaveToXML();
+            _xmlDictionary.SaveToXml();
         }
         #endregion
     }
@@ -61,8 +55,8 @@ namespace LingvoLearnWords
     {
         public CardViewModel(Card card)
         {
-            Card = card;
-            Meanings = new ObservableCollection<CardMeaningViewModel>(Card.Meanings.Select(i => new CardMeaningViewModel(this, i)));
+            _card = card;
+            Meanings = new ObservableCollection<CardMeaningViewModel>(_card.Meanings.Select(i => new CardMeaningViewModel(this, i)));
             if (Meanings.Count > 0)
             {
                 FirstTranslations = Meanings[0].Translations;
@@ -70,39 +64,38 @@ namespace LingvoLearnWords
             }
         }
 
-        private Card Card;
+        private readonly Card _card;
 
         public string Word
         {
-            get { return Card.Word; }
-            set { Card.Word = value; RaisePropertiesChanged("Word"); }
+            get => _card.Word;
+            set { _card.Word = value; RaisePropertiesChanged("Word"); }
         }
 
-        public ObservableCollection<CardMeaningViewModel> Meanings { get; private set; }
+        public ObservableCollection<CardMeaningViewModel> Meanings { get; }
 
-        public ObservableCollection<CardMeaningTranslationViewModel> FirstTranslations { get; private set; }
+        public ObservableCollection<CardMeaningTranslationViewModel> FirstTranslations { get; }
 
-        public ObservableCollection<CardMeaningSoundViewModel> FirstSounds { get; private set; }
+        public ObservableCollection<CardMeaningSoundViewModel> FirstSounds { get; }
 
         public string TranslationContent
         {
             get
             {
-                if (Meanings.Count > 0 && Meanings[0].Translations.Count > 0)
+                if (Meanings != null && (Meanings.Count > 0 && Meanings[0].Translations.Count > 0))
                 {
-                    StringBuilder result = new StringBuilder();
+                    var result = new StringBuilder();
 
-                    for (int i = 0; i < Meanings[0].Translations.Count; i++)
+                    for (var i = 0; i < Meanings[0].Translations.Count; i++)
                     {
                         result.Append(Meanings[0].Translations[i].Word);
                         if (i != Meanings[0].Translations.Count - 1)
-                            result.Append(@" // ");
+                            result.Append(" // ");
                     }
 
                     return result.ToString();
                 }
-                else
-                    return "[null]";
+                return "[null]";
             }
         }
 
@@ -110,11 +103,10 @@ namespace LingvoLearnWords
         {
             get
             {
-                int result = 0;
+                var result = 0;
                 if (Meanings.Count > 0 && Meanings[0].Statistics.Count > 0)
                 {
-                    int answered;
-                    bool parsed = int.TryParse(Meanings[0].Statistics[0].Answered, out answered);
+                    var parsed = int.TryParse(Meanings[0].Statistics[0].Answered, out var answered);
                     if (parsed)
                         result = answered * 10;
 
@@ -129,7 +121,7 @@ namespace LingvoLearnWords
         {
             get
             {
-                CardStatus result = CardStatus.NaN;
+                var result = CardStatus.NaN;
                 if (Meanings.Count > 0 && Meanings[0].Statistics.Count > 0)
                 {
                     switch (Meanings[0].Statistics[0].Status)
@@ -159,15 +151,15 @@ namespace LingvoLearnWords
         public CardMeaningViewModel(CardViewModel cardOwner, CardMeaning meaning)
         {
             CardOwner = cardOwner;
-            Meaning = meaning;
-            Statistics = new ObservableCollection<StatisticsViewModel>(Meaning.Statistics.Select(i => new StatisticsViewModel(this, i)));
-            Translations = new ObservableCollection<CardMeaningTranslationViewModel>(Meaning.Translations.Select(i => new CardMeaningTranslationViewModel(this, i)));
-            Sounds = new ObservableCollection<CardMeaningSoundViewModel>(Meaning.Sound.Select(i => new CardMeaningSoundViewModel(this, i)));
+            _meaning = meaning;
+            Statistics = new ObservableCollection<StatisticsViewModel>(_meaning.Statistics.Select(i => new StatisticsViewModel(this, i)));
+            Translations = new ObservableCollection<CardMeaningTranslationViewModel>(_meaning.Translations.Select(i => new CardMeaningTranslationViewModel(this, i)));
+            Sounds = new ObservableCollection<CardMeaningSoundViewModel>(_meaning.Sound.Select(i => new CardMeaningSoundViewModel(this, i)));
         }
 
         public CardViewModel CardOwner;
 
-        private CardMeaning Meaning;
+        private readonly CardMeaning _meaning;
 
         public ObservableCollection<StatisticsViewModel> Statistics { get; set; }
 
@@ -177,8 +169,8 @@ namespace LingvoLearnWords
 
         public string Soundfile
         {
-            get { return Meaning.Soundfile; }
-            set { Meaning.Soundfile = value; RaisePropertiesChanged("Soundfile"); }
+            get => _meaning.Soundfile;
+            set { _meaning.Soundfile = value; RaisePropertiesChanged("Soundfile"); }
         }
     }
 
@@ -187,19 +179,19 @@ namespace LingvoLearnWords
         public CardMeaningTranslationViewModel(CardMeaningViewModel cardMeaningOwner, CardMeaningTranslation translation)
         {
             CardMeaningOwner = cardMeaningOwner;
-            Translation = translation;
+            _translation = translation;
         }
 
         public CardMeaningViewModel CardMeaningOwner;
 
-        private CardMeaningTranslation Translation;
+        private readonly CardMeaningTranslation _translation;
 
         public string Word
         {
-            get { return Translation.Word; }
+            get => _translation.Word;
             set
             {
-                Translation.Word = value;
+                _translation.Word = value;
                 RaisePropertiesChanged("Word");
                 CardMeaningOwner.CardOwner.RaisePropertiesChanged("TranslationContent");
             }
@@ -211,29 +203,29 @@ namespace LingvoLearnWords
         public StatisticsViewModel(CardMeaningViewModel cardMeaningOwner, Statistics statistics)
         {
             CardMeaningOwner = cardMeaningOwner;
-            Statistics = statistics;
+            _statistics = statistics;
         }
 
         public CardMeaningViewModel CardMeaningOwner;
 
-        private Statistics Statistics;
+        private readonly Statistics _statistics;
 
         public string Status
         {
-            get { return Statistics.Status; }
-            set { Statistics.Status = value; RaisePropertiesChanged("Status"); }
+            get => _statistics.Status;
+            set { _statistics.Status = value; RaisePropertiesChanged("Status"); }
         }
 
         public string Answered
         {
-            get { return Statistics.Answered; }
-            set { Statistics.Answered = value; RaisePropertiesChanged("Answered"); }
+            get => _statistics.Answered;
+            set { _statistics.Answered = value; RaisePropertiesChanged("Answered"); }
         }
 
         public string Shown
         {
-            get { return Statistics.Shown; }
-            set { Statistics.Shown = value; RaisePropertiesChanged("Shown"); }
+            get => _statistics.Shown;
+            set { _statistics.Shown = value; RaisePropertiesChanged("Shown"); }
         }
     }
 
@@ -242,17 +234,17 @@ namespace LingvoLearnWords
         public CardMeaningSoundViewModel(CardMeaningViewModel cardMeaningOwner, CardMeaningSound cardMeaningSound)
         {
             CardMeaningOwner = cardMeaningOwner;
-            CardMeaningSound = cardMeaningSound;
+            _cardMeaningSound = cardMeaningSound;
         }
 
         public CardMeaningViewModel CardMeaningOwner;
 
-        private CardMeaningSound CardMeaningSound;
+        private readonly CardMeaningSound _cardMeaningSound;
 
         public string Name
         {
-            get { return CardMeaningSound.Name; }
-            set { CardMeaningSound.Name = value; RaisePropertiesChanged("Name"); }
+            get => _cardMeaningSound.Name;
+            set { _cardMeaningSound.Name = value; RaisePropertiesChanged("Name"); }
         }
     }
 }

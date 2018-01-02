@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
 
 namespace LingvoLearnWords
 {
@@ -25,17 +12,14 @@ namespace LingvoLearnWords
             InitializeComponent();
         }
 
-        private int _Value;
+        private int _value;
         public int Value
         {
-            get
-            {
-                return _Value;
-            }
+            get => _value;
             set
             {
-                _Value = value;
-                teBase.EditValue = _Value;
+                _value = value;
+                teBase.EditValue = _value;
             }
         }
     }

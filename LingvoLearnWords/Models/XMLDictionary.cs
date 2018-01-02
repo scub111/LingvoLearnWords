@@ -5,19 +5,15 @@ using System.Xml.Serialization;
 
 namespace LingvoLearnWords
 {
-    public class XMLDictionary
+    public class XmlDictionary
     {
-        public XMLDictionary(string filePath)
+        public XmlDictionary(string filePath)
         {
-            string dir = Path.GetDirectoryName(filePath);
-
-            if (string.IsNullOrEmpty(dir))
-                FilePath = Path.GetDirectoryName(Application.ExecutablePath) + "\\" + filePath;
-            else
-                FilePath = filePath;
+            var dir = Path.GetDirectoryName(filePath);
+            FilePath = string.IsNullOrEmpty(dir) ? $"{Path.GetDirectoryName(Application.ExecutablePath)}\\{filePath}" : filePath;
         }
 
-        public XMLDictionary() : this ("Common2016EnRu.xml")
+        public XmlDictionary() : this ("Common2016EnRu.xml")
         {
         }
 
@@ -34,37 +30,35 @@ namespace LingvoLearnWords
         /// <summary>
         /// Загрузить данные из XML-файла.
         /// </summary>
-        public void LoadFromXML(string filePath = "")
+        public void LoadFromXml(string filePath = "")
         {
-            string filePathInt = FilePath;
+            var filePathInt = FilePath;
 
             if (!string.IsNullOrEmpty(filePath))
                 filePathInt = filePath;
 
-            if (File.Exists(filePathInt))
+            if (!File.Exists(filePathInt)) return;
+            var deserializer = new XmlSerializer(typeof(Dictionary));
+            using (TextReader textReader = new StreamReader(filePathInt))
             {
-                XmlSerializer deserializer = new XmlSerializer(typeof(Dictionary));
-                using (TextReader textReader = new StreamReader(filePathInt))
-                {
-                    Dictionary = (Dictionary)deserializer.Deserialize(textReader);
-                }
+                Dictionary = (Dictionary)deserializer.Deserialize(textReader);
             }
         }
 
         /// <summary>
         /// Сохранить данные в XML-файл.
         /// </summary>
-        public void SaveToXML(string filePath = "")
+        public void SaveToXml(string filePath = "")
         {
-            string filePathInt = FilePath;
+            var filePathInt = FilePath;
 
             if (!string.IsNullOrEmpty(filePath))
                 filePathInt = filePath;
 
-            XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
+            var ns = new XmlSerializerNamespaces();
             ns.Add("", "");
 
-            XmlSerializer xmlSer = new XmlSerializer(typeof(Dictionary));
+            var xmlSer = new XmlSerializer(typeof(Dictionary));
             using (TextWriter textWriter = new StreamWriter(filePathInt, false, Encoding.Unicode))
             {
                 xmlSer.Serialize(textWriter, Dictionary, ns);

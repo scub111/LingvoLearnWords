@@ -10,7 +10,7 @@ namespace LingvoLearnWords
     /// Interaction logic for HMILabel.xaml
     /// </summary>
     [DefaultEvent("ClickDown")]
-    public partial class ButtonEx : UserControlEx
+    public partial class ButtonEx
     {
         public ButtonEx()
         {
@@ -20,14 +20,14 @@ namespace LingvoLearnWords
 
         public Brush FillBrush
         {
-            get { return recFill.Fill; }
-            set { recFill.Fill = value; }
+            get => recFill.Fill;
+            set => recFill.Fill = value;
         }
 
         public string Text
         {
-            get { return txtCaption.Text; }
-            set { txtCaption.Text = value; }
+            get => txtCaption.Text;
+            set => txtCaption.Text = value;
         }
 
         /// <summary>
@@ -35,8 +35,8 @@ namespace LingvoLearnWords
         /// </summary>
         public Color Color
         {
-            get { return ((LinearGradientBrush)recMouse.Fill).GradientStops[1].Color; }
-            set { ((LinearGradientBrush)recMouse.Fill).GradientStops[1].Color = value; }
+            get => ((LinearGradientBrush)recMouse.Fill).GradientStops[1].Color;
+            set => ((LinearGradientBrush)recMouse.Fill).GradientStops[1].Color = value;
         }
 
         /// <summary>
@@ -44,8 +44,8 @@ namespace LingvoLearnWords
         /// </summary>
         public double CaptionFontSize
         {
-            get { return txtCaption.FontSize; }
-            set { txtCaption.FontSize = value; }
+            get => txtCaption.FontSize;
+            set => txtCaption.FontSize = value;
         }
 
         /// <summary>
@@ -53,8 +53,8 @@ namespace LingvoLearnWords
         /// </summary>
         public double RectangleRadius
         {
-            get { return recMouse.RadiusX; }
-            set { recMouse.RadiusX = recMouse.RadiusY = value; }
+            get => recMouse.RadiusX;
+            set => recMouse.RadiusX = recMouse.RadiusY = value;
         }
         
         /// <summary>

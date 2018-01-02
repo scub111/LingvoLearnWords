@@ -8,11 +8,11 @@ namespace LingvoLearnWords
     /// </summary>
     public abstract class UserControlEx : UserControl
     {
-        public UserControlEx()
+        protected UserControlEx()
         {
             Visible = false;
-            this.Loaded += UserControlEx_Loaded;
-            this.Unloaded += UserControlEx_Unloaded;            
+            Loaded += UserControlEx_Loaded;
+            Unloaded += UserControlEx_Unloaded;            
         }
 
         /// <summary>
@@ -20,12 +20,12 @@ namespace LingvoLearnWords
         /// </summary>
         public bool Visible { get; set; }
 
-        void UserControlEx_Loaded(object sender, RoutedEventArgs e)
+        private void UserControlEx_Loaded(object sender, RoutedEventArgs e)
         {
             Visible = true;
         }
 
-        void UserControlEx_Unloaded(object sender, RoutedEventArgs e)
+        private void UserControlEx_Unloaded(object sender, RoutedEventArgs e)
         {
             Visible = false;
         }

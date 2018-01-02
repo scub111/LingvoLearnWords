@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace LingvoLearnWords
@@ -44,7 +40,7 @@ namespace LingvoLearnWords
     [Serializable()]
     [XmlType(AnonymousType = true)]
     [XmlRoot(ElementName = "statistics", IsNullable = false)]
-    public partial class Statistics
+    public class Statistics
     {
         [XmlAttribute("readyMeaningsQuantity")]
         public string ReadyMeaningsQuantity { get; set; }

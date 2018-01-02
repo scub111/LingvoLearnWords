@@ -20,8 +20,8 @@ using System.Xml.Serialization;
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+[XmlTypeAttribute(AnonymousType=true)]
+[XmlRootAttribute(Namespace="", IsNullable=false)]
 public partial class statistics {
     
     private string readyMeaningsQuantityField;
@@ -37,68 +37,68 @@ public partial class statistics {
     private string shownField;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string readyMeaningsQuantity {
         get {
-            return this.readyMeaningsQuantityField;
+            return readyMeaningsQuantityField;
         }
         set {
-            this.readyMeaningsQuantityField = value;
+            readyMeaningsQuantityField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string activeMeaningsQuantity {
         get {
-            return this.activeMeaningsQuantityField;
+            return activeMeaningsQuantityField;
         }
         set {
-            this.activeMeaningsQuantityField = value;
+            activeMeaningsQuantityField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string learnedMeaningsQuantity {
         get {
-            return this.learnedMeaningsQuantityField;
+            return learnedMeaningsQuantityField;
         }
         set {
-            this.learnedMeaningsQuantityField = value;
+            learnedMeaningsQuantityField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string status {
         get {
-            return this.statusField;
+            return statusField;
         }
         set {
-            this.statusField = value;
+            statusField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string answered {
         get {
-            return this.answeredField;
+            return answeredField;
         }
         set {
-            this.answeredField = value;
+            answeredField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string shown {
         get {
-            return this.shownField;
+            return shownField;
         }
         set {
-            this.shownField = value;
+            shownField = value;
         }
     }
 }
@@ -108,8 +108,8 @@ public partial class statistics {
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+[XmlTypeAttribute(AnonymousType=true)]
+[XmlRootAttribute(Namespace="", IsNullable=false)]
 public partial class dictionary {
     
     private statistics[] statisticsField;
@@ -131,101 +131,101 @@ public partial class dictionary {
     private string soundfileField;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("statistics")]
+    [XmlElementAttribute("statistics")]
     public statistics[] statistics {
         get {
-            return this.statisticsField;
+            return statisticsField;
         }
         set {
-            this.statisticsField = value;
+            statisticsField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("card", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [XmlElementAttribute("card", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public dictionaryCard[] card {
         get {
-            return this.cardField;
+            return cardField;
         }
         set {
-            this.cardField = value;
+            cardField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string formatVersion {
         get {
-            return this.formatVersionField;
+            return formatVersionField;
         }
         set {
-            this.formatVersionField = value;
+            formatVersionField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string title {
         get {
-            return this.titleField;
+            return titleField;
         }
         set {
-            this.titleField = value;
+            titleField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string sourceLanguageId {
         get {
-            return this.sourceLanguageIdField;
+            return sourceLanguageIdField;
         }
         set {
-            this.sourceLanguageIdField = value;
+            sourceLanguageIdField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string destinationLanguageId {
         get {
-            return this.destinationLanguageIdField;
+            return destinationLanguageIdField;
         }
         set {
-            this.destinationLanguageIdField = value;
+            destinationLanguageIdField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string nextWordId {
         get {
-            return this.nextWordIdField;
+            return nextWordIdField;
         }
         set {
-            this.nextWordIdField = value;
+            nextWordIdField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string targetNamespace {
         get {
-            return this.targetNamespaceField;
+            return targetNamespaceField;
         }
         set {
-            this.targetNamespaceField = value;
+            targetNamespaceField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string soundfile {
         get {
-            return this.soundfileField;
+            return soundfileField;
         }
         set {
-            this.soundfileField = value;
+            soundfileField = value;
         }
     }
 }
@@ -235,7 +235,7 @@ public partial class dictionary {
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+[XmlTypeAttribute(AnonymousType=true)]
 public partial class dictionaryCard {
     
     private string wordField;
@@ -243,25 +243,25 @@ public partial class dictionaryCard {
     private dictionaryCardMeaningsMeaning[][] meaningsField;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string word {
         get {
-            return this.wordField;
+            return wordField;
         }
         set {
-            this.wordField = value;
+            wordField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("meaning", typeof(dictionaryCardMeaningsMeaning), Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
+    [XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [XmlArrayItemAttribute("meaning", typeof(dictionaryCardMeaningsMeaning), Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
     public dictionaryCardMeaningsMeaning[][] meanings {
         get {
-            return this.meaningsField;
+            return meaningsField;
         }
         set {
-            this.meaningsField = value;
+            meaningsField = value;
         }
     }
 }
@@ -271,7 +271,7 @@ public partial class dictionaryCard {
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+[XmlTypeAttribute(AnonymousType=true)]
 public partial class dictionaryCardMeaningsMeaning {
     
     private statistics[] statisticsField;
@@ -291,91 +291,91 @@ public partial class dictionaryCardMeaningsMeaning {
     private string meaningIdField;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("statistics")]
+    [XmlElementAttribute("statistics")]
     public statistics[] statistics {
         get {
-            return this.statisticsField;
+            return statisticsField;
         }
         set {
-            this.statisticsField = value;
+            statisticsField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("word", typeof(dictionaryCardMeaningsMeaningTranslationsWord), Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [XmlArrayItemAttribute("word", typeof(dictionaryCardMeaningsMeaningTranslationsWord), Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public dictionaryCardMeaningsMeaningTranslationsWord[][] translations {
         get {
-            return this.translationsField;
+            return translationsField;
         }
         set {
-            this.translationsField = value;
+            translationsField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("examples", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [XmlElementAttribute("examples", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public dictionaryCardMeaningsMeaningExamples[] examples {
         get {
-            return this.examplesField;
+            return examplesField;
         }
         set {
-            this.examplesField = value;
+            examplesField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("sound", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [XmlElementAttribute("sound", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public dictionaryCardMeaningsMeaningSound[] sound {
         get {
-            return this.soundField;
+            return soundField;
         }
         set {
-            this.soundField = value;
+            soundField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string transcription {
         get {
-            return this.transcriptionField;
+            return transcriptionField;
         }
         set {
-            this.transcriptionField = value;
+            transcriptionField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string soundfile {
         get {
-            return this.soundfileField;
+            return soundfileField;
         }
         set {
-            this.soundfileField = value;
+            soundfileField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string partOfSpeech {
         get {
-            return this.partOfSpeechField;
+            return partOfSpeechField;
         }
         set {
-            this.partOfSpeechField = value;
+            partOfSpeechField = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string meaningId {
         get {
-            return this.meaningIdField;
+            return meaningIdField;
         }
         set {
-            this.meaningIdField = value;
+            meaningIdField = value;
         }
     }
 }
@@ -385,19 +385,19 @@ public partial class dictionaryCardMeaningsMeaning {
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+[XmlTypeAttribute(AnonymousType=true)]
 public partial class dictionaryCardMeaningsMeaningTranslationsWord {
     
     private string valueField;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTextAttribute()]
+    [XmlTextAttribute()]
     public string Value {
         get {
-            return this.valueField;
+            return valueField;
         }
         set {
-            this.valueField = value;
+            valueField = value;
         }
     }
 }
@@ -407,19 +407,19 @@ public partial class dictionaryCardMeaningsMeaningTranslationsWord {
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+[XmlTypeAttribute(AnonymousType=true)]
 public partial class dictionaryCardMeaningsMeaningExamples {
     
     private string exampleField;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string example {
         get {
-            return this.exampleField;
+            return exampleField;
         }
         set {
-            this.exampleField = value;
+            exampleField = value;
         }
     }
 }
@@ -429,19 +429,19 @@ public partial class dictionaryCardMeaningsMeaningExamples {
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+[XmlTypeAttribute(AnonymousType=true)]
 public partial class dictionaryCardMeaningsMeaningSound {
     
     private string nameField;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    [XmlAttributeAttribute()]
     public string name {
         get {
-            return this.nameField;
+            return nameField;
         }
         set {
-            this.nameField = value;
+            nameField = value;
         }
     }
 }
@@ -451,21 +451,21 @@ public partial class dictionaryCardMeaningsMeaningSound {
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+[XmlTypeAttribute(AnonymousType=true)]
+[XmlRootAttribute(Namespace="", IsNullable=false)]
 public partial class NewDataSet {
     
     private object[] itemsField;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("dictionary", typeof(dictionary))]
+    [XmlElementAttribute("dictionary", typeof(dictionary))]
     //[System.Xml.Serialization.XmlElementAttribute("statistics", typeof(statistics))]
     public object[] Items {
         get {
-            return this.itemsField;
+            return itemsField;
         }
         set {
-            this.itemsField = value;
+            itemsField = value;
         }
     }
 }

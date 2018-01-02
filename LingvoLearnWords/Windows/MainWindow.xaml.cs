@@ -7,7 +7,7 @@ namespace LingvoLearnWords
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         public MainWindow()
         {
@@ -16,7 +16,7 @@ namespace LingvoLearnWords
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Title += $" {Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
+            Title += $" {Assembly.GetExecutingAssembly().GetName().Version}";
         }
 
         private void navPane_MouseDown(object sender, MouseButtonEventArgs e)

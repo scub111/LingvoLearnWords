@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 
 namespace LingvoLearnWords
 {
@@ -13,11 +12,11 @@ namespace LingvoLearnWords
             InitializeComponent();
         }
 
-        private void ViewBase_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        private void ViewBase_Loaded(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < 3; i++)
+            for (var i = 0; i < 3; i++)
             {
-                ButtonEx buttonEx = new ButtonEx();
+                var buttonEx = new ButtonEx();
                 buttonEx.Margin = new Thickness(0, i * 100, 0, 0);
                 RootLayout.Children.Add(buttonEx);
             }
